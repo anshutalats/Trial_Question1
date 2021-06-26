@@ -1,0 +1,87 @@
+Selenium v3 is in use, and it comprises of IDE, WebDriver and Grid
+
+Exceptions in Selenium:
+TimeoutException: This exception is thrown when a command performing an operation does not complete in the stipulated time
+NoSuchElementException: This exception is thrown when an element with given attributes is not found on the web page
+ElementNotVisibleException: This exception is thrown when the element is present in DOM (Document Object Model), but not visible on the web page
+StaleElementException: This exception is thrown when the element is either deleted or no longer attached to the DOM
+
+Exception Test:
+If you have written a test case in such way that it should throw an exception, 
+then you can use the @Test annotation and specify which exception you will be expecting by mentioning it in the parameters. 
+Take a look at the example below: @Test(expectedException = NoSuchElementException.class)
+
+6. How can you redirect browsing from a browser through some proxy?
+Selenium provides a PROXY class to redirect browsing from a proxy. Look at the example below:
+String PROXY = &ldquo;199.201.125.147:8080&rdquo;;
+org.openqa.selenium.Proxy proxy = new.org.openqa.selenium.Proxy();
+proxy.setHTTPProxy(Proxy)
+ .setFtpProxy(Proxy)
+ .setSslProxy(Proxy)
+DesiredCapabilities cap = new DesiredCapabilities();
+cap.setCapability(CapabilityType.PROXY, proxy);
+WebDriver driver = new FirefoxDriver(cap);
+
+7. What is POM (Page Object Model)? What are its advantages?
+Page Object Model is a design pattern for creating an Object Repository for web UI elements. 
+Each web page in the application is required to have it’s own corresponding page class. 
+The page class is thus responsible for finding the WebElements in that page and then perform operations on those WebElements.
+The advantages of using POM are:
+Allows us to separate operations and flows in the UI from Verification – improves code readability
+Since the Object Repository is independent of Test Cases, multiple tests can use the same Object Repository
+Reusability of code
+
+Page Factory gives an optimized way to implement Page Object Model.
+When we say it is optimized, it refers to the fact that the memory utilization is very good 
+and also the implementation is done in an object oriented manner.
+Uses By()
+
+9. What are the different types of WAIT statements in Selenium WebDriver? Or the question can be framed like this: 
+How do you achieve synchronization in WebDriver?
+There are basically two types of wait statements: Implicit Wait and Explicit Wait.
+Implicit wait instructs the WebDriver to wait for some time by polling the DOM. 
+Once you have declared implicit wait, it will be available for the entire life of the WebDriver instance.
+By default, the value will be 0. If you set a longer default, 
+then the behavior will poll the DOM on a periodic basis depending on the browser/ driver implementation.
+Explicit wait instructs the execution to wait for some time until some condition is achieved. Some of those conditions to be attained are:
+elementToBeClickable
+elementToBeSelected
+presenceOfElementLocated
+
+14. How to handle keyboard and mouse actions using Selenium?
+We can handle special keyboard and mouse events by using Advanced User Interactions API.
+clickAndHold()	Clicks (without releasing) the current mouse location.
+dragAndDrop()	Performs click-and-hold at the location of the source element, moves.
+source, target()	Moves to the location of the target element, then releases the mouse.
+
+15. What are different types of frameworks?
+The different types of frameworks are:
+Data Driven Framework:-
+Keyword Driven Framework:-
+Hybrid Framework:-
+
+18. What is Selenese?
+Selenese is the set of selenium commands which are used to test your web application.
+You can even make use of:
+Actions: Used for performing operations
+Assertions: Used as checkpoints
+Accessors: Used for storing a value in a particular variable
+
+19. Can Selenium handle window pop-ups?
+Selenium does not support handling pop-ups. Alert is used to display a warning message. It is a pop-up window that comes up on the screen.
+Void dismiss(): This method is called when the ‘Cancel’ button is clicked in the alert box.
+Void accept(): This method is called when you click on the ‘OK’ button of the alert.
+String getText(): This method is called to capture the alert message.
+Void sendKeys(String stringToSed): This is called when you want to send some data to alert box.
+
+Assert: An assertion is used to compare the actual result of an application with the expected result.
+Verify: There won’t be any halt in the test execution even though the verify condition is true or false.
+
+25. Can you navigate back and forth the webpage in Selenium?
+Yes. You can navigate in the browser. A few methods using which you can achieve it are:
+driver.navigate.forward
+driver.manage.back
+driver.manage.navigate
+driver.navigate.to(“url”)
+
+
